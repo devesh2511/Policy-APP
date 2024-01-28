@@ -1,0 +1,75 @@
+<div *ngIf="!userName" class="exit">
+    You are not Authenticated!! Please 
+    <a class="log-reg" routerLink="/register">
+        Register
+    </a> 
+    or 
+    <a class="log-reg" routerLink="/login">
+        Login
+    </a>
+</div>
+
+<div *ngIf="userName" class="text-center">
+    <app-nav></app-nav>
+    <div class="home-content">
+        <div class="search-sort">
+            <mat-form-field appearance="fill" class="example-form-field">
+              
+                    <mat-label> -Sorting- </mat-label>
+                    <mat-select [formControl]="sortOrderControl">
+                        <mat-option value="default">Default</mat-option>
+                        <mat-option value="price-by-desc">Price By Desc</mat-option>
+                        <mat-option value="price-by-asc">Price By Asc</mat-option>
+                        <mat-option value="category-by-desc">Category By Desc</mat-option>
+                        <mat-option value="category-by-asc">Category By Asc</mat-option>
+                    </mat-select>
+           
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-form-field">
+                
+                    <mat-label>Search Cleaning Services</mat-label>
+                    <input matInput type="text" [formControl]="searchKey" />
+                    <button matSuffix mat-icon-button aria-label="Clear" (click)="searchByName()">
+                        <mat-icon>
+                            <svg xmlns="http://www.w3.org/2000/svg" style="fill:#000000" height="1em"
+                                viewBox="0 0 512 512">
+
+                                <path
+                                    d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" />
+                            </svg>
+                        </mat-icon>
+                    </button>
+               
+            </mat-form-field>
+
+        </div>
+        <div class="my-container-wrap">
+            <mat-card class="example-card" *ngFor="let item of displayedServices">
+                <a style="text-decoration: none;" [routerLink]="['/book-service/', item.serviceId]">
+                    <mat-card-header>
+                        <mat-card-title class="card-title">{{ item.serviceName }}</mat-card-title>
+                    </mat-card-header>
+                    <img class="service-img" src={{item.image}}>
+
+                    <mat-card-content class="card-content">
+                        <p>Description: {{ item.description }}</p>
+                        <p>Category: {{ item.category }}</p>
+                        <p class="price">Price: ₹ {{ item.price }} /-</p>
+                    </mat-card-content>
+                </a>
+
+            </mat-card>
+
+
+        </div>
+        <!-- <div class="paginator">
+            <mat-paginator [length]="totalRecords" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 15]"
+                [pageIndex]="pageIndex" aria-label="Select page" (page)="handlePageEvent($event)">
+            </mat-paginator>
+        </div> -->
+
+        
+
+    </div>
+    <app-footer></app-footer>
+</div>

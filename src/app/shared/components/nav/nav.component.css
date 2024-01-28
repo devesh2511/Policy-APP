@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:900&display=swap');
+
+* {
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+.container-fluid{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+a{
+    color: rgba(255, 255, 255, 0.8);
+}
+
+a:hover{
+    transform: scale(1.2);
+    color: rgb(255, 255, 255);
+}
+
+img{
+    width: 7rem;
+}

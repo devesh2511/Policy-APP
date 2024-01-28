@@ -1,0 +1,31 @@
+<app-nav></app-nav>
+
+
+<div class="service-page">
+
+    <div>
+        <img src={{data.image}} alt="">
+    </div>
+
+    <div class="service-details">
+        <div>
+
+        <h1 class="title">{{data.serviceName}}</h1>
+
+        <p class="category">Category: {{data.category}}</p>
+
+        <p class="price">Get this service at just ₹ <b>{{data.price}}</b></p>
+
+        <p class="description">What we do: {{data.description}}</p>
+
+        <button id="rzp-button1" (click)="paymentGateway()" class="btn-cart">
+            Proceed to Payment
+        </button>
+
+    </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

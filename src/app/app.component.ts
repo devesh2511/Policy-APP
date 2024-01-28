@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { LayoutComponent } from './layout/layout.component';
+import { Component, OnInit } from '@angular/core';
+import { TokenService } from './services/token.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'ang';
+export class AppComponent implements OnInit{
+  title = 'UI';
+
+  constructor(private tokenService : TokenService , private router : Router){}
+
+  ngOnInit(): void {
+    if(this.tokenService.getAccessToken() && this.tokenService.getRefreshToken()){
+      console.error('HERE');
+      //this.router.navigate([''])
+    }
+  }
+
 }

@@ -1,0 +1,50 @@
+
+
+<div class="login-body">
+  <div class="screen">
+    <div class="screen__content">
+      <h1 class="h3 mb-3 fw-normal">Register</h1>
+      <form class="login" [formGroup]='registerForm' (submit)="register()">
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input type="text" class="login__input" id="floatingInput" formControlName="username" placeholder="User name">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input type="text" class="login__input" id="floatingInput" formControlName="Name" placeholder="Name">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input type="text" class="login__input" id="floatingInput" formControlName="Email" placeholder="Email">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input type="text" class="login__input" id="floatingInput" formControlName="Phone" placeholder="Phone">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-lock"></i>
+          <input type="password" class="login__input" id="floatingPassword" formControlName="password"
+            placeholder="Password">
+        </div>
+        <button class="button login__submit" type="submit" [disabled]="!registerForm.valid">
+          <span class="button__text">Register</span>
+          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+        <div class="social-login">
+          <h3 *ngIf="success" routerLink="/login">Registration Successful!! Please Login</h3>
+        </div>
+        <p *ngIf="errMessage" class="alert alert-danger alert-dismissible fade show">{{errMessage}}</p>
+      </form>
+      <div class="social-login">
+        <h3 routerLink="/login">Existing User</h3>
+      </div>
+    </div>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
+  </div>
+
+</div>

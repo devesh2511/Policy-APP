@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:900&display=swap');
+
+* {
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+.service-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+    margin: 2rem;
+    padding: 1rem;
+}
+
+img {
+    width: 25rem;
+    height: 21rem;
+    box-shadow: 0px 0px 10px 1px #00000069;
+    border-radius: 1rem;
+}
+
+.service-details {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.title {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    padding: 10px 0px;
+    font-weight: 700;
+    background: url(https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.jpg);
+    background-size: 10%;
+    background-position: 50% 50%;
+    -webkit-background-clip: text;
+    color: rgba(0, 0, 0, 0.08);
+    animation: zoomout 1s ease 50ms forwards;
+}
+
+
+@keyframes zoomout {
+    from {
+        background-size: 100%;
+    }
+
+    to {
+        background-size: 10%;
+    }
+}
+
+.category{
+    background-color: rgba(255, 255, 0, 0.5);
+    padding: 5px;
+    width: 50%;
+    border-radius: 1rem;
+}
+
+.price{
+    background-color: rgb(0, 255, 140, 0.5);
+    padding: 5px;
+    width: 60%;
+    border-radius: 1rem;
+}
+
+.description{
+    background-color: rgba(0, 179, 255, 0.5);
+    padding: 5px;
+    width: 70%;
+    border-radius: 1rem;
+}
+
+.btn-cart {
+    cursor: pointer;
+    color: #000000;
+    position: relative;
+    padding: 10px 16px;
+    background: #00000029;
+    font-size: 15px;
+    font-weight: 700;
+    transition: all 0.5s;
+    border: none;
+    text-decoration: none;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.btn-cart:hover {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.btn-cart:after,
+.btn-cart:before {
+    content: " ";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border: 0px solid #000000;
+    transition: all 0.5s;
+}
+
+.btn-cart:after {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid #000000;
+    border-left: 2px solid #000000;
+}
+
+.btn-cart:before {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid #000000;
+    border-right: 2px solid #000000;
+}
+
+.btn-cart:hover:before,
+.btn-cart:hover:after {
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}

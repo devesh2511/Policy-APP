@@ -1,0 +1,34 @@
+<app-nav></app-nav>
+
+<body class="bookingBody">
+
+    <div *ngFor="let booking of Bookings" class="bookingdetail" tabindex="0">
+
+        <div class="detail1">
+            <div class="detail2">
+                <div>BookingId: <b>{{booking.bookingId}}</b></div>
+                <div>Booking for: <b>{{booking.serviceName}}</b></div>
+            </div>
+
+            <form [formGroup]='reviewForm' (ngSubmit)="addReview(booking.bookingId)">
+                
+                <input type="text"  rows="2" cols="20" placeholder="Review... " id="floatingInput" formControlName='review'>
+                
+                <button id="review" type="submit" class="btn-cart">Submit</button>
+                <div style="display: none;">BookingId: <b>{{booking.bookingId}}</b></div>
+            </form>
+        </div>
+
+        <span>
+
+            <p>PaymentId: {{booking.paymentId}}</p>
+            <p>Price Paid: ₹{{booking.price}}</p>
+            <p>Service: {{booking.serviceName}}</p>
+            <p>Category: {{booking.category}}</p>
+
+        </span>
+    </div>
+
+</body>
+
+<app-footer></app-footer>
