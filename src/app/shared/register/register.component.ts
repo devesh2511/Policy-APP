@@ -10,10 +10,9 @@ import { RegistrationService } from '../../services/registration.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm: FormGroup = new FormGroup({});
-
+  registerForm: FormGroup
   success = false;
-  errMessage = '';
+  errMessage = ''
 
   constructor(
     private formBuilder: FormBuilder,

@@ -3,7 +3,7 @@ import { FormBuilder, FormControlName, FormGroup, Validators } from '@angular/fo
 import { Router, RouterLink } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { TokenService } from '../../services/token.service';
-import { HomeService } from '../../services/home.service';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +12,7 @@ import { HomeService } from '../../services/home.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm : FormGroup = new FormGroup({});
-
+  loginForm : FormGroup
   message = '';
 
   constructor(

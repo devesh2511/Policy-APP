@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Bookings } from './Bookings';
-import { HomeService } from '../../services/home.service';
+import { HomeService } from 'src/app/services/home.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -16,13 +16,7 @@ export class BookingsComponent implements OnInit {
   Bookings !: Bookings[];
   routed: any;
   service: any;
-  arg1: { ServiceName: string; username: string; bookingId: string; category: string; review: string; } = {
-    ServiceName: '',
-    username: '',
-    bookingId: '',
-    category: '',
-    review: ''
-  };
+  arg1: { ServiceName: string; username: string; bookingId: string; category: string; review: string; };
   reviewForm!: FormGroup;
 
 
@@ -30,7 +24,7 @@ export class BookingsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const thisuser = localStorage.getItem("username") ?? '';
+    const thisuser = localStorage.getItem("username");
 
     this.bookings.getBookingbyUsername(thisuser).subscribe((data: any) => {
       this.Bookings = data as Bookings[];
@@ -51,7 +45,7 @@ export class BookingsComponent implements OnInit {
     console.warn(review.review)
     const thisuser = localStorage.getItem("username")
 
-    this.bookings.getBookingbyUsername(thisuser ?? '').subscribe((data: any) => {
+    this.bookings.getBookingbyUsername(thisuser).subscribe((data: any) => {
       this.Bookings = data as Bookings[];
     });
     // for (let booking of this.Bookings) {

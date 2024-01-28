@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { HomeService } from '../../services/home.service';
+import { HomeService } from 'src/app/services/home.service';
 import { map } from 'rxjs';
 
 @Component({

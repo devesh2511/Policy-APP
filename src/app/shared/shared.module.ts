@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -12,17 +12,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Dialog2Component } from './dialog2/dialog2.component';
 import { Dialog3Component } from './dialog3/dialog3.component';
 import { HomeComponent } from './home/home.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSelectModule } from '@angular/material/select';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatInputModule } from '@angular/material/input';
-// Remove the duplicate import statement
-// import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule, MatCard, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatPaginatorModule, MatSelectModule, MatToolbarModule } from '@angular/material';
+import { BookingsComponent } from './bookings/bookings.component';
+import {MatTableModule} from '@angular/material/table';
+import {Component} from '@angular/core';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @NgModule({
   declarations: [
@@ -37,7 +31,7 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatPaginatorModule,
     MatCardModule,
-    MatIconModule, // Keep the original import statement
+    MatIconModule,
     MatToolbarModule,
     MatSelectModule,
     MatInputModule,

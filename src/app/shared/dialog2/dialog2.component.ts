@@ -13,11 +13,11 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class Dialog2Component implements OnInit {
 
-  deleteServiceForm: FormGroup = new FormGroup({});
+  deleteServiceForm: FormGroup
   success = false;
-  errMessage = '';
+  errMessage = ''
   dialogRef: any;
-  services: Observable<serviceDetails[]> = new Observable<serviceDetails[]>();
+  services:Observable<serviceDetails[]>;
   
 
   constructor(
@@ -35,7 +35,7 @@ export class Dialog2Component implements OnInit {
 
 
   deleteService(){
-    const serviceId = this.deleteServiceForm.get('serviceId')?.value;
+    const serviceId = this.deleteServiceForm.get('serviceId').value;
     this.service.deleteService(serviceId).subscribe((response)=>{
       alert("Cleaning Service Deleted");
       this.router.navigate(['/'])

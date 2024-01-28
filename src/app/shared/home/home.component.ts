@@ -5,7 +5,6 @@ import { PageEvent } from '@angular/material/paginator';
 import { HomeService } from '../../services/home.service';
 import { CleaningServices } from './CleaningServices';
 import { Component, OnInit } from '@angular/core';
-import { HttpResponse } from '@angular/common/http';
 
 
 @Component({
@@ -20,16 +19,17 @@ export class HomeComponent implements OnInit {
 
   title = 'Cleaning Services';
   sortOrderControl = new FormControl('');
-  totalRecords: number = 0;
+  searchKey = new FormControl('');
+  CleaningServices: CleaningServices[] = [];
+  displayedServices: CleaningServices[] = [];
+  totalRecords: number;
+  pageIndex = 0;
+  pageSize = 5;
 
-  pageIndex: number = 0;
-
-  pageSize: number = 5;
-  homeService: any;
-  searchKey: any;
+  constructor(private homeService: HomeService, private loginService: LoginService) { }
 
   ngOnInit(): void {
-    this.userName = localStorage.getItem("token") ?? '';
+    this.userName = localStorage.getItem("token");
 
     this.getApi('', '', '',
       this.pageIndex,
@@ -44,26 +44,23 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  displayedServices: CleaningServices[] = [];
-  CleaningServices: CleaningServices[] = [];
-
   doSorting(value: string) {
     let sortColumn: string = '';
     let sortType: string = '';
     if (value.toLowerCase() === 'default') {
-      this.displayedServices = this.CleaningServices.sort((a: CleaningServices, b: CleaningServices) => a.serviceId - b.serviceId)
+      this.displayedServices = this.CleaningServices.sort((a, b) => a.serviceId - b.serviceId)
 
     } else if (value.toLowerCase() === 'price-by-desc') {
-      this.displayedServices = this.CleaningServices.sort((a: CleaningServices, b: CleaningServices) => b.price - a.price)
+      this.displayedServices = this.CleaningServices.sort((a, b) => b.price - a.price)
 
     } else if (value.toLowerCase() === 'price-by-asc') {
-      this.displayedServices = this.CleaningServices.sort((a: CleaningServices, b: CleaningServices) => a.price - b.price)
+      this.displayedServices = this.CleaningServices.sort((a, b) => a.price - b.price)
 
     } else if (value.toLowerCase() === 'category-by-desc') {
-      this.displayedServices = this.CleaningServices.sort((a: CleaningServices, b: CleaningServices) => (b.serviceName > a.serviceName) ? 1 : -1)
+      this.displayedServices = this.CleaningServices.sort((a, b) => (b.serviceName > a.serviceName) ? 1 : -1)
 
     } else if (value.toLowerCase() === 'category-by-asc') {
-      this.displayedServices = this.CleaningServices.sort((a: CleaningServices, b: CleaningServices) => (a.serviceName > b.serviceName) ? 1 : -1)
+      this.displayedServices = this.CleaningServices.sort((a, b) => (a.serviceName > b.serviceName) ? 1 : -1)
 
     }
 
@@ -93,7 +90,7 @@ export class HomeComponent implements OnInit {
     currentPage: number, pageSize: number) {
     this.homeService
       .get(sortColumn, sortType, searchKey, (currentPage + 1), pageSize)
-      .subscribe((response: HttpResponse<any>) => {
+      .subscribe((response) => {
         console.log(response);
         this.CleaningServices = response.body as CleaningServices[];
         this.displayedServices = [...this.CleaningServices];

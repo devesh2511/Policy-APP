@@ -24,7 +24,7 @@ export class BookServiceComponent implements OnInit {
   ngOnInit(): void {
     this.router.paramMap.pipe(
       map((params: ParamMap) => params.get('id')),
-    ).subscribe((newValue) => this.id = newValue ?? '')
+    ).subscribe((newValue) => this.id = newValue)
 
     this.service.getItemByID(this.id).subscribe((data) => {
       console.log(data);
@@ -49,7 +49,7 @@ export class BookServiceComponent implements OnInit {
       "description": "Payment" + this.data.serviceName,
       "image": "../../../../assets/paymentlogo.png",
       "order_id": "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      "handler": (response: any) => {
+      "handler": (response) => {
         if (!response.razorpay_payment_id || response.razorpay_payment_id < 1) {
           // payment failed
         } else {

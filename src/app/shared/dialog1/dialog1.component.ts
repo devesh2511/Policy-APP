@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class Dialog1Component implements OnInit {
 
-  newserviceForm: FormGroup = new FormGroup({});
+  newserviceForm: FormGroup
   success = false;
   errMessage = ''
   dialogRef: any;
