@@ -34,20 +34,13 @@ import { Dialog3Component } from './shared/dialog3/dialog3.component';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    NavComponent,
-    BookServiceComponent,
-    AppointmentComponent,
+
     AdminComponent,
-    FooterComponent,
-    Dialog1Component,
-    Dialog2Component,
-    Dialog3Component,
     HomeComponent,
     BookingsComponent
     // HomeComponent,
     
     // NavComponent,
-    //FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +59,8 @@ import { Dialog3Component } from './shared/dialog3/dialog3.component';
     MatInputModule,
     MatFormFieldModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    SharedModule
     // MatOptionModule
   ],
   providers: [

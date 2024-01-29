@@ -20,7 +20,13 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @NgModule({
   declarations: [
-    
+    NavComponent,
+    BookServiceComponent,
+    AppointmentComponent,
+    FooterComponent,
+    Dialog1Component,
+    Dialog2Component,
+    Dialog3Component,
   ],
   imports: [
     CommonModule,
@@ -37,7 +43,6 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
     MatInputModule,
     MatFormFieldModule,
     MatTableModule,
-    Component,
 
   ],
   exports: [
